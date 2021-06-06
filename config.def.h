@@ -4,10 +4,10 @@
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "00";
 
 /* maximum output string length */
-#define MAXLEN 2048
+#define MAXLEN 1024 
 
 /*
  * function            description                     argument (example)
@@ -63,7 +63,13 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
+// " [ ] "
+#define netspeed(interface_name)  
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function        format        argument */
+    { netspeed_rx,     " [ ↓%s",     "enp1s0"},
+    { netspeed_tx,     " ↑%s]",      "enp1s0"},
+    { cpu_perc,        " [CPU:%s]",  NULL},
+    { swap_perc,       " [RAM:%s]",  NULL },
+	{ datetime,        " %s ",       "%T %m-%d" },
 };
