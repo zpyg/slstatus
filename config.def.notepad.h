@@ -64,12 +64,14 @@ static const char unknown_str[] = "00";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 
-// for PC
+// for notepad
 static const struct arg args[] = {
     /* function        format        argument */
-    { netspeed_rx,     " [ ↓%s",     "enp1s0"  },
-    { netspeed_tx,     " ↑%s]",      "enp1s0"  },
+    { netspeed_rx,     " [ ↓%s",     "wlan0"   },
+    { netspeed_tx,     " ↑%s]",      "wlan0"   },
     { cpu_perc,        " [CPU:%s]",  NULL      },
     { ram_perc,        " [RAM:%s]",  NULL      },
+    { battery_state,   " (%s",        "BAT1"   },
+    { battery_perc,    " %s)",        "BAT1"   },
     { datetime,        " %s ",       "%T %m-%d"}
 };
