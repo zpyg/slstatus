@@ -67,9 +67,11 @@ static const char unknown_str[] = "00";
 // for PC
 static const struct arg args[] = {
     /* function        format        argument */
-    { netspeed_rx,     " [ ↓%s",     "enp1s0"  },
-    { netspeed_tx,     " ↑%s]",      "enp1s0"  },
-    { cpu_perc,        " [CPU:%s]",  NULL      },
-    { ram_perc,        " [RAM:%s]",  NULL      },
-    { datetime,        " %s ",       "%T %m-%d"}
+    { netspeed_rx,     " [ ↓%s",     "enp1s0"     },
+    { netspeed_tx,     "↑%s]",       "enp1s0"     },
+
+    { cpu_perc,        " [ %s%%",   NULL         },
+    { ram_perc,        "   %s%%]",  NULL         },
+
+    { datetime,        " [%s]",      "%T %A %m-%d"}
 };
