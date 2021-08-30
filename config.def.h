@@ -67,11 +67,14 @@ static const char unknown_str[] = "00";
 // for PC
 static const struct arg args[] = {
     /* function        format        argument */
-    { netspeed_rx,     " [ ↓%s",     "enp1s0"     },
-    { netspeed_tx,     "↑%s]",       "enp1s0"     },
+    { netspeed_rx,     " [ ↓%s",     "wlp4s0"  }, // nmcli device show | awk 'NR == 1 {print $2}'
+    { netspeed_tx,     "↑%s]",       "wlp4s0"  }, // 或 ip link 查看设备
 
-    { cpu_perc,        " [ %s%%",   NULL         },
-    { ram_perc,        "   %s%%]",  NULL         },
+    { cpu_perc,        " [ %s%%",   NULL      },
+    { ram_perc,        "   %s%%]",  NULL      },
+
+    /* { battery_state,   " (%s",        "BAT1"   },
+    { battery_perc,    " %s)",        "BAT1"   }, */
 
     { datetime,        " [%s]",      "%T %A %m-%d"}
 };
